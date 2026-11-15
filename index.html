@@ -187,15 +187,15 @@ button{font-family:inherit;font-size:inherit;cursor:pointer;border:0;color:inher
 .cuttag.s{background:#fdf4ff;color:#86198f;border-color:#f0abfc}
 .cutrow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;padding-top:50px}
 .gap{position:relative;display:inline-block;width:0;height:1.2em}
-.slide.on .gap{animation:gapo .6s 1.4s both}
+.slide.on .gap{animation:gapo .6s 4.3s both}
 .slide.on .gap.g0{animation:none}
 @keyframes gapo{to{width:46px}}
 .scis{position:absolute;left:50%;top:50%;font-style:normal;font-size:34px;transform:translate(-50%,-50%);opacity:0;z-index:2}
-.slide.on .scis{animation:snip 1.4s .8s both}
+.slide.on .scis{animation:snip 1.4s 3.7s both}
 @keyframes snip{0%{opacity:0;transform:translate(-50%,-160%) scale(.3)}30%{opacity:1;transform:translate(-50%,-50%) scale(1.2) rotate(-18deg)}50%{opacity:1;transform:translate(-50%,-50%) rotate(18deg)}70%{opacity:1;transform:translate(-50%,-50%) rotate(-18deg)}100%{opacity:1;transform:translate(-50%,-50%) rotate(0)}}
-.slide.on .conj{overflow:hidden;white-space:nowrap;animation:vanish .5s 1.4s both}
+.slide.on .conj{overflow:hidden;white-space:nowrap;animation:vanish .5s 4.3s both}
 @keyframes vanish{from{max-width:140px;opacity:1}to{max-width:0;opacity:0;padding-left:0;padding-right:0}}
-.slide.on .lift{animation:lift 1s 1.4s both}
+.slide.on .lift{animation:lift 1s 4.3s both}
 @keyframes lift{to{transform:translateY(-46px) rotate(-3deg)}}
 .verd{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
 .ok,.no{padding:4px 16px;border-radius:999px;font-weight:800;font-size:clamp(16px,2vw,20px)}
@@ -301,7 +301,7 @@ canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-in
 
 <!-- ===== สไลด์เนื้อหา ===== -->
 <div id="lesson" role="dialog" aria-label="เนื้อหาเรื่องประโยค">
-  <div class="ls-top"><b>📖 เนื้อหา: ประโยคในภาษาไทย</b><span class="pill" id="lsCount">1/8</span><button class="btn ghost small" id="lsClose">✕ ปิด</button></div>
+  <div class="ls-top"><b>📖 เนื้อหา: ประโยคในภาษาไทย</b><span class="pill" id="lsCount">1/8</span><div style="display:flex;gap:8px"><button class="btn ghost small" id="lsReplay">🔁 เล่นซ้ำ</button><button class="btn ghost small" id="lsClose">✕ ปิด</button></div></div>
   <div class="ls-stage" id="lsStage">
 
     <!-- 1 ประโยคคืออะไร -->
@@ -429,7 +429,7 @@ canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-in
           <span class="gap"><i class="scis">✂️</i></span>
           <span class="bk b">น้องชอบฟังเพลง</span>
         </div>
-        <div class="verd"><span class="ok an" style="--d:2.4s">✅ ท่อนแรก: ประโยคสมบูรณ์</span><span class="ok an" style="--d:2.8s">✅ ท่อนหลัง: ประโยคสมบูรณ์</span></div>
+        <div class="verd"><span class="ok an" style="--d:5.4s">✅ ท่อนแรก: ประโยคสมบูรณ์</span><span class="ok an" style="--d:5.8s">✅ ท่อนหลัง: ประโยคสมบูรณ์</span></div>
       </div>
       <div class="cutbox an" style="--a:rise;--d:.7s">
         <div class="cuttag s">ความซ้อน</div>
@@ -439,9 +439,9 @@ canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-in
           <span class="bk s lift">ที่ฉันซื้อเมื่อวาน</span>
           <span class="bk a">เป็นนิยายสนุก</span>
         </div>
-        <div class="verd"><span class="ok an" style="--d:2.6s">✅ ที่เหลือ “หนังสือเป็นนิยายสนุก” ยังสมบูรณ์</span><span class="no an" style="--d:3s">❌ “ที่ฉันซื้อเมื่อวาน” ยืนเดี่ยว ๆ ไม่ได้</span></div>
+        <div class="verd"><span class="ok an" style="--d:6.2s">✅ ที่เหลือ “หนังสือเป็นนิยายสนุก” ยังสมบูรณ์</span><span class="no an" style="--d:6.6s">❌ “ที่ฉันซื้อเมื่อวาน” ยืนเดี่ยว ๆ ไม่ได้</span></div>
       </div>
-      <p class="sub an" style="--d:3.4s;--a:rise;margin-top:16px">ตัดแล้วสมบูรณ์ทั้งคู่ = <b>ความรวม</b> • มีท่อนที่ยืนเดี่ยว ๆ ไม่ได้ = <b>ความซ้อน</b></p>
+      <p class="sub an" style="--d:7.2s;--a:rise;margin-top:16px">ตัดแล้วสมบูรณ์ทั้งคู่ = <b>ความรวม</b> • มีท่อนที่ยืนเดี่ยว ๆ ไม่ได้ = <b>ความซ้อน</b></p>
     </section>
 
     <!-- 8 กับดัก -->
@@ -666,6 +666,7 @@ function openLesson(){ lesson.classList.add('open'); document.body.style.overflo
 function closeLesson(){ lesson.classList.remove('open'); document.body.style.overflow = ''; }
 $('lessonBtn').onclick = openLesson;
 $('lsClose').onclick = closeLesson;
+$('lsReplay').onclick = () => go(cur);
 $('lsPrev').onclick = () => go(cur-1);
 $('lsNext').onclick = () => { if(cur === slides.length-1){ closeLesson(); start(); } else go(cur+1); };
 $('lsGo').onclick = () => { closeLesson(); start(); };
