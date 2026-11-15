@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#4f46e5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>ทบทวนประโยค: ความเดียว ความรวม ความซ้อน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1e1b4b; --muted:#64648a; --card:rgba(255,255,255,.88);
+  --single:#0d9488; --single-bg:#ccfbf1;
+  --compound:#ea580c; --compound-bg:#ffedd5;
+  --complex:#c026d3; --complex-bg:#fae8ff;
+  --good:#16a34a; --bad:#dc2626;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%}
+body{
+  font-family:'Sarabun','Noto Sans Thai','Thonburi',system-ui,sans-serif;
+  color:var(--ink);font-size:20px;line-height:1.6;overflow-x:hidden;
+  background:linear-gradient(135deg,#e0e7ff,#fce7f3,#ccfbf1,#fef3c7);
+  background-size:400% 400%;animation:bgmove 18s ease infinite;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  -webkit-user-select:none;user-select:none;
+}
+@keyframes bgmove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.blobs{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.45;animation:float 14s ease-in-out infinite}
+.b1{width:340px;height:340px;background:#a5b4fc;top:-80px;left:-80px}
+.b2{width:300px;height:300px;background:#f9a8d4;bottom:-60px;right:-60px;animation-delay:-4s}
+.b3{width:260px;height:260px;background:#5eead4;top:40%;left:55%;animation-delay:-8s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-50px) scale(1.15)}}
+.app{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:20px 18px 40px;min-height:100vh;display:flex;flex-direction:column}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.brand{font-weight:800;font-size:22px;display:flex;align-items:center;gap:10px}
+.brand .logo{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:24px;color:#fff;background:linear-gradient(135deg,#6366f1,#ec4899);box-shadow:0 8px 20px rgba(99,102,241,.4)}
+button{font-family:inherit;font-size:inherit;cursor:pointer;border:0;color:inherit;touch-action:manipulation}
+.btn{min-height:58px;padding:12px 28px;border-radius:18px;font-weight:700;font-size:20px;color:#fff;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);box-shadow:0 10px 24px rgba(99,102,241,.38);
+  transition:transform .15s,box-shadow .15s,filter .15s;position:relative;overflow:hidden}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:scale(.96);box-shadow:0 4px 10px rgba(99,102,241,.3)}
+.btn.ghost{background:rgba(255,255,255,.8);color:var(--ink);box-shadow:0 4px 14px rgba(30,27,75,.12)}
+.btn.small{min-height:46px;padding:8px 18px;font-size:17px;border-radius:14px}
+.btn.reveal{background:linear-gradient(135deg,#f59e0b,#ef4444);box-shadow:0 10px 24px rgba(239,68,68,.35);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+.screen{display:none;animation:rise .55s cubic-bezier(.2,.8,.2,1) both}
+.screen.active{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(26px) scale(.98)}to{opacity:1;transform:none}}
+.card{background:var(--card);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.9);border-radius:28px;padding:28px;box-shadow:0 20px 50px rgba(79,70,229,.15)}
+
+/* setup */
+.hero{text-align:center;padding:8px 0 4px}
+.hero h1{font-size:clamp(30px,5vw,46px);margin:6px 0 4px;line-height:1.25;background:linear-gradient(90deg,#4f46e5,#db2777);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin:0;color:var(--muted)}
+.types{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}
+.tcard{border-radius:22px;padding:18px 14px;text-align:center;font-weight:700;animation:rise .6s both}
+.tcard small{display:block;font-weight:500;color:var(--muted);font-size:15px;line-height:1.4;margin-top:4px}
+.tcard .ic{font-size:34px;display:block;animation:bob 3s ease-in-out infinite}
+.tcard:nth-child(2) .ic{animation-delay:-1s}.tcard:nth-child(3) .ic{animation-delay:-2s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.t-single{background:var(--single-bg);color:#115e59}
+.t-compound{background:var(--compound-bg);color:#9a3412}
+.t-complex{background:var(--complex-bg);color:#86198f}
+.pick{text-align:center}
+.pick h3{margin:0 0 12px}
+.stepper{display:inline-flex;align-items:center;gap:18px;background:#fff;border-radius:24px;padding:10px 16px;box-shadow:inset 0 0 0 2px #e0e7ff}
+.stepper button{width:60px;height:60px;border-radius:50%;font-size:32px;font-weight:700;color:#fff;background:linear-gradient(135deg,#6366f1,#8b5cf6);transition:transform .12s}
+.stepper button:active{transform:scale(.88)}
+.stepper .num{min-width:84px;font-size:52px;font-weight:800;line-height:1;color:#4f46e5}
+.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0 22px}
+.chip{min-height:50px;padding:6px 20px;border-radius:999px;background:#fff;font-weight:700;box-shadow:0 3px 10px rgba(30,27,75,.1);transition:all .15s}
+.chip.on{background:linear-gradient(135deg,#6366f1,#ec4899);color:#fff;transform:translateY(-2px);box-shadow:0 8px 18px rgba(139,92,246,.4)}
+.hint{color:var(--muted);font-size:16px;margin-top:10px}
+
+/* quiz */
+.progress{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.bar{flex:1;height:14px;border-radius:999px;background:rgba(255,255,255,.7);overflow:hidden;box-shadow:inset 0 2px 4px rgba(0,0,0,.08)}
+.bar i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,#6366f1,#ec4899,#f59e0b);background-size:200% 100%;animation:shine 3s linear infinite;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes shine{to{background-position:200% 0}}
+.pill{font-weight:700;background:#fff;border-radius:999px;padding:4px 16px;box-shadow:0 3px 10px rgba(30,27,75,.1);white-space:nowrap}
+.score{color:var(--good)}
+.qlabel{font-weight:700;color:var(--muted);margin-bottom:6px}
+.sentence{font-size:clamp(28px,4.6vw,46px);font-weight:700;line-height:1.7;padding:26px 18px;margin:8px 0 22px;border-radius:22px;
+  background:linear-gradient(135deg,#fff,#eef2ff);text-align:center;box-shadow:inset 0 0 0 2px #e0e7ff;word-break:keep-all;overflow-wrap:anywhere}
+.sentence.enter{animation:flip .6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes flip{from{opacity:0;transform:perspective(900px) rotateX(-50deg) translateY(20px)}to{opacity:1;transform:none}}
+.seg{padding:2px 6px;margin:0 2px;border-radius:10px;transition:background .5s,box-shadow .5s,color .5s}
+.seg.j{font-weight:800}
+.sentence.show .seg.a{background:#dbeafe;box-shadow:inset 0 -4px 0 #3b82f6}
+.sentence.show .seg.b{background:#ffedd5;box-shadow:inset 0 -4px 0 #f97316}
+.sentence.show .seg.s{background:#fce7f3;box-shadow:inset 0 -4px 0 #ec4899}
+.sentence.show .seg.j{background:#fef9c3;box-shadow:inset 0 -4px 0 #eab308}
+.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.choice{min-height:74px;border-radius:20px;font-weight:800;font-size:21px;padding:10px 8px;line-height:1.3;transition:transform .15s,box-shadow .15s,opacity .3s;box-shadow:0 6px 16px rgba(30,27,75,.12)}
+.choice:active{transform:scale(.95)}
+.choice.disabled{pointer-events:none;opacity:.45}
+.choice.mine{opacity:1;outline:5px solid #6366f1}
+.choice.right{opacity:1;outline:5px solid var(--good);animation:pop .5s}
+.choice.wrong{animation:shake .5s}
+@keyframes pop{50%{transform:scale(1.07)}}
+@keyframes shake{20%,60%{transform:translateX(-9px)}40%,80%{transform:translateX(9px)}}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.answer{display:none;margin-top:22px;border-radius:24px;padding:22px 24px;border:3px solid;position:relative;overflow:hidden}
+.answer.open{display:block;animation:unfold .6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes unfold{from{opacity:0;transform:translateY(-14px) scaleY(.7);transform-origin:top}to{opacity:1;transform:none}}
+.answer.t-single{border-color:var(--single)}.answer.t-compound{border-color:var(--compound)}.answer.t-complex{border-color:var(--complex)}
+.verdict{font-weight:800;font-size:24px;margin-bottom:6px}
+.verdict.ok{color:var(--good)}.verdict.no{color:var(--bad)}
+.atype{display:inline-block;font-weight:800;font-size:24px;padding:4px 18px;border-radius:999px;background:#fff;box-shadow:0 3px 10px rgba(0,0,0,.1)}
+.akind{font-weight:700;margin:8px 0 2px}
+.why{margin:8px 0 12px}
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.lg{font-size:16px;font-weight:700;padding:2px 14px;border-radius:999px}
+.lg.a{background:#dbeafe;color:#1d4ed8}.lg.b{background:#ffedd5;color:#c2410c}.lg.s{background:#fce7f3;color:#be185d}.lg.j{background:#fef9c3;color:#a16207}
+
+/* result */
+.result{text-align:center}
+.trophy{font-size:92px;animation:bob 2.2s ease-in-out infinite;display:block}
+.result h2{font-size:34px;margin:6px 0}
+.bigscore{font-size:64px;font-weight:800;color:#4f46e5;line-height:1.1}
+canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+@media (max-width:640px){
+  body{font-size:18px}.types,.choices{grid-template-columns:1fr}.card{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<canvas id="fx"></canvas>
+
+<div class="app">
+  <header class="top">
+    <div class="brand"><span class="logo">ก</span><span>ทบทวนประโยค</span></div>
+    <button class="btn ghost small" id="homeBtn" style="display:none">← หน้าแรก</button>
+  </header>
+
+  <!-- ตั้งค่า -->
+  <section class="screen active" id="s-setup">
+    <div class="card">
+      <div class="hero">
+        <h1>ทบทวนความรู้เรื่องประโยค</h1>
+        <p>ประโยคความเดียว • ประโยคความรวม • ประโยคความซ้อน</p>
+      </div>
+      <div class="types">
+        <div class="tcard t-single" style="animation-delay:.05s"><span class="ic">①</span>ความเดียว<small>ใจความเดียว กริยาหลักเดียว</small></div>
+        <div class="tcard t-compound" style="animation-delay:.15s"><span class="ic">⛓</span>ความรวม<small>หลายประโยคเชื่อมด้วยสันธาน</small></div>
+        <div class="tcard t-complex" style="animation-delay:.25s"><span class="ic">🧩</span>ความซ้อน<small>มีอนุประโยคซ้อนอยู่ในประโยค</small></div>
+      </div>
+      <div class="pick">
+        <h3>เลือกจำนวนประโยคที่ต้องการทบทวน</h3>
+        <div class="stepper">
+          <button id="minus" aria-label="ลด">−</button>
+          <span class="num" id="count">10</span>
+          <button id="plus" aria-label="เพิ่ม">+</button>
+        </div>
+        <div class="chips" id="chips"></div>
+        <button class="btn" id="startBtn" style="font-size:24px;min-height:66px;padding:14px 48px">เริ่มทบทวน ▶</button>
+        <p class="hint">ระบบสุ่มประโยคให้ครบทั้ง 3 ชนิดในสัดส่วนใกล้เคียงกัน • ทายก่อนแล้วกดเฉลยได้</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ทำแบบฝึก -->
+  <section class="screen" id="s-quiz">
+    <div class="progress">
+      <span class="pill" id="qno">ข้อ 1/10</span>
+      <div class="bar"><i id="barfill"></i></div>
+      <span class="pill score" id="scoreTxt">⭐ 0</span>
+    </div>
+    <div class="card">
+      <div class="qlabel">ประโยคต่อไปนี้เป็นประโยคชนิดใด</div>
+      <div class="sentence enter" id="sentence"></div>
+      <div class="choices" id="choices">
+        <button class="choice t-single" data-t="single">① ประโยคความเดียว</button>
+        <button class="choice t-compound" data-t="compound">⛓ ประโยคความรวม</button>
+        <button class="choice t-complex" data-t="complex">🧩 ประโยคความซ้อน</button>
+      </div>
+      <div class="actions">
+        <button class="btn reveal" id="revealBtn">🔍 เปิดเฉลย</button>
+        <button class="btn" id="nextBtn" style="display:none">ข้อต่อไป →</button>
+      </div>
+      <div class="answer" id="answer"></div>
+    </div>
+  </section>
+
+  <!-- สรุปผล -->
+  <section class="screen" id="s-result">
+    <div class="card result">
+      <span class="trophy" id="trophy">🏆</span>
+      <h2 id="rTitle">เยี่ยมมาก!</h2>
+      <div class="bigscore" id="rScore"></div>
+      <p id="rSub" style="color:var(--muted)"></p>
+      <div class="actions" style="margin-top:18px">
+        <button class="btn" id="againBtn">🔁 เล่นอีกรอบ (จำนวนเดิม)</button>
+        <button class="btn ghost" id="backBtn">เลือกจำนวนใหม่</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+/* ===== ข้อมูลประโยค 20 ข้อ (ฝังในโค้ด) =====
+   seg: [ข้อความ, ชนิดส่วน]  a=ส่วนที่ ๑/ประธาน/ประโยคหลัก, b=ส่วนที่ ๒/ภาคแสดง, s=อนุประโยค, j=ตัวเชื่อม */
+const SENTENCES = [
+  // ---- ความเดียว (7) ----
+  {type:"single", kind:"ประโยคความเดียว", seg:[["นักเรียน","a"],["อ่านหนังสือในห้องสมุด","b"]],
+   why:"มีประธานคือ “นักเรียน” และกริยาหลักเพียงตัวเดียวคือ “อ่าน” มี “หนังสือ” เป็นกรรม ส่วน “ในห้องสมุด” เป็นส่วนขยายบอกสถานที่ จึงมีใจความเดียว ไม่มีประโยคอื่นมาเชื่อมหรือแทรก"},
+  {type:"single", kind:"ประโยคความเดียว", seg:[["คุณครูใจดีของเรา","a"],["สอนภาษาไทยทุกวัน","b"]],
+   why:"ประธานคือ “คุณครู” แม้จะมีส่วนขยายยาวว่า “ใจดีของเรา” แต่เป็นเพียงคำวิเศษณ์และวลี ไม่ใช่ประโยค กริยาหลักมีตัวเดียวคือ “สอน” จึงเป็นประโยคความเดียว"},
+  {type:"single", kind:"ประโยคความเดียว", seg:[["ฝน","a"],["ตกหนักตลอดคืน","b"]],
+   why:"ประธานคือ “ฝน” กริยาคือ “ตก” มี “หนัก” และ “ตลอดคืน” ขยายกริยา มีใจความสำคัญเพียงหนึ่งเดียว"},
+  {type:"single", kind:"ประโยคความเดียว", seg:[["แม่","a"],["ซื้อผลไม้สดที่ตลาดตอนเช้า","b"]],
+   why:"ประธานคือ “แม่” กริยาคือ “ซื้อ” กรรมคือ “ผลไม้สด” คำว่า “ที่” ในประโยคนี้เป็นบุพบทบอกสถานที่ ไม่ใช่คำเชื่อมอนุประโยค จึงยังเป็นประโยคความเดียว"},
+  {type:"single", kind:"ประโยคความเดียว", seg:[["เด็ก ๆ","a"],["วิ่งเล่นอยู่ที่สนามหลังโรงเรียน","b"]],
+   why:"ประธานคือ “เด็ก ๆ” กริยา “วิ่งเล่น” เป็นกริยาซ้อนที่ถือเป็นกริยาหลักชุดเดียวกัน มีส่วนขยายบอกสถานที่ จึงมีใจความเดียว"},
+  {type:"single", kind:"ประโยคความเดียว", seg:[["ชาวนา","a"],["เกี่ยวข้าวด้วยเคียวอย่างขยันขันแข็ง","b"]],
+   why:"ประธานคือ “ชาวนา” กริยาคือ “เกี่ยว” กรรมคือ “ข้าว” ส่วน “ด้วยเคียว” และ “อย่างขยันขันแข็ง” เป็นส่วนขยายกริยา ไม่มีประโยคอื่นเข้ามาเกี่ยวข้อง"},
+  {type:"single", kind:"ประโยคความเดียว", seg:[["เด็กชายสมศักดิ์","a"],["เล่นฟุตบอลกับเพื่อนที่สนามโรงเรียน","b"]],
+   why:"ประธานคือ “เด็กชายสมศักดิ์” กริยาหลักคือ “เล่น” กรรมคือ “ฟุตบอล” มีส่วนขยายบอกผู้ร่วมกระทำและสถานที่ จึงมีใจความเดียว"},
+
+  // ---- ความรวม (7) ----
+  {type:"compound", kind:"ประโยคความรวม (สันธานคล้อยตามกัน)", seg:[["ฉันชอบอ่านหนังสือ","a"],["และ","j"],["น้องชอบฟังเพลง","b"]],
+   why:"มี ๒ ประโยคที่มีน้ำหนักเท่ากัน (“ฉันชอบอ่านหนังสือ” และ “น้องชอบฟังเพลง”) เชื่อมกันด้วยสันธาน “และ” ซึ่งแสดงความคล้อยตามกัน ต่างฝ่ายต่างมีประธานและกริยาของตนเอง"},
+  {type:"compound", kind:"ประโยคความรวม (สันธานขัดแย้งกัน)", seg:[["เขาตั้งใจเรียนมาก","a"],["แต่","j"],["สอบไม่ผ่าน","b"]],
+   why:"เชื่อมประโยค “เขาตั้งใจเรียนมาก” กับ “(เขา)สอบไม่ผ่าน” ด้วย “แต่” ซึ่งแสดงความขัดแย้งกัน ทั้งสองประโยคมีความสำคัญเท่ากัน ไม่มีประโยคใดเป็นส่วนขยายของอีกประโยค"},
+  {type:"compound", kind:"ประโยคความรวม (สันธานเป็นเหตุเป็นผลกัน)", seg:[["ฝนตกหนักมาก","a"],["ดังนั้น","j"],["เราจึงงดไปเที่ยว","b"]],
+   why:"ประโยคแรกเป็นเหตุ ประโยคหลังเป็นผล เชื่อมด้วย “ดังนั้น…จึง” ซึ่งเป็นสันธานแสดงเหตุผล ทั้งสองประโยคยังเป็นประโยคอิสระที่มีน้ำหนักเท่ากัน"},
+  {type:"compound", kind:"ประโยคความรวม (สันธานเป็นทางเลือก)", seg:[["เธอจะไปทะเล","a"],["หรือ","j"],["จะไปภูเขา","b"]],
+   why:"“หรือ” เป็นสันธานแสดงการเลือกอย่างใดอย่างหนึ่ง เชื่อมประโยค “เธอจะไปทะเล” กับ “(เธอ)จะไปภูเขา” ซึ่งเป็นใจความที่เท่าเทียมกัน"},
+  {type:"compound", kind:"ประโยคความรวม (สันธานคล้อยตามกัน)", seg:[["ครูเดินเข้ามาในห้องเรียน","a"],["แล้ว","j"],["นักเรียนทุกคนก็ลุกขึ้นยืน","b"]],
+   why:"“แล้ว” เชื่อมเหตุการณ์ ๒ เหตุการณ์ที่เกิดต่อเนื่องกัน คือครูเดินเข้ามา และนักเรียนลุกขึ้นยืน เป็นสันธานแบบคล้อยตามกัน ทั้งสองประโยคเป็นอิสระต่อกัน"},
+  {type:"compound", kind:"ประโยคความรวม (สันธานคล้อยตามกัน)", seg:[["เขาไม่เพียงเรียนเก่ง","a"],["แต่","j"],["ยังเล่นกีฬาเก่งด้วย","b"]],
+   why:"แม้มีคำว่า “แต่” แต่โครงสร้าง “ไม่เพียง…แต่…ด้วย” ใช้เสริมข้อมูลให้มากขึ้น จึงเป็นสันธานคล้อยตามกัน ไม่ใช่ขัดแย้ง ทั้งสองข้อความมีน้ำหนักเท่ากัน จึงเป็นประโยคความรวม"},
+  {type:"compound", kind:"ประโยคความรวม (สันธานเป็นทางเลือก)", seg:[["เราต้องตื่นแต่เช้า","a"],["มิฉะนั้น","j"],["เราจะไปโรงเรียนสาย","b"]],
+   why:"“มิฉะนั้น” (ไม่เช่นนั้น) เป็นสันธานแสดงทางเลือกที่ตรงข้ามกัน เชื่อม ๒ ประโยคอิสระเข้าด้วยกัน ไม่ได้ทำให้ประโยคใดเป็นส่วนขยายของอีกประโยค"},
+
+  // ---- ความซ้อน (6) ----
+  {type:"complex", kind:"ประโยคความซ้อน (นามานุประโยค เป็นกรรม)", seg:[["ฉันทราบ","a"],["ว่า","j"],["เขาจะมาพรุ่งนี้","s"]],
+   why:"ประโยคหลักคือ “ฉันทราบ” ส่วน “ว่าเขาจะมาพรุ่งนี้” เป็นอนุประโยคที่ทำหน้าที่เป็นนาม (นามานุประโยค) เป็นกรรมของกริยา “ทราบ” จึงเป็นประโยคความซ้อน"},
+  {type:"complex", kind:"ประโยคความซ้อน (นามานุประโยค เป็นประธาน)", seg:[["การที่","j"],["เขาตั้งใจเรียน","s"],["ทำให้เขาสอบได้ที่หนึ่ง","a"]],
+   why:"“การที่เขาตั้งใจเรียน” เป็นนามานุประโยคที่ทำหน้าที่เป็นประธานของประโยคหลัก “ทำให้เขาสอบได้ที่หนึ่ง” คือมีประโยคหนึ่งซ้อนอยู่ในตำแหน่งประธาน จึงเป็นประโยคความซ้อน"},
+  {type:"complex", kind:"ประโยคความซ้อน (คุณานุประโยค)", seg:[["หนังสือ","a"],["ที่","j"],["ฉันซื้อเมื่อวาน","s"],["เป็นนิยายสนุก","a"]],
+   why:"“ที่ฉันซื้อเมื่อวาน” เป็นคุณานุประโยค ทำหน้าที่ขยายนาม “หนังสือ” โดยใช้ “ที่” เป็นประพันธสรรพนามเชื่อม ส่วนประโยคหลักคือ “หนังสือเป็นนิยายสนุก”"},
+  {type:"complex", kind:"ประโยคความซ้อน (คุณานุประโยค)", seg:[["ครู","a"],["ที่","j"],["สอนภาษาไทยให้เรา","s"],["นั้นใจดีมาก","a"]],
+   why:"“ที่สอนภาษาไทยให้เรา” เป็นคุณานุประโยคขยายคำนาม “ครู” ประโยคหลักคือ “ครูนั้นใจดีมาก” อนุประโยคนี้มีกริยาของตนเองคือ “สอน” จึงเป็นประโยคความซ้อน"},
+  {type:"complex", kind:"ประโยคความซ้อน (วิเศษณานุประโยค บอกเวลา)", seg:[["เมื่อ","j"],["ฝนหยุดตก","s"],["เด็ก ๆ ก็ออกไปเล่นนอกบ้าน","a"]],
+   why:"“เมื่อฝนหยุดตก” เป็นวิเศษณานุประโยคบอกเวลา ทำหน้าที่ขยายกริยาของประโยคหลัก “เด็ก ๆ ก็ออกไปเล่นนอกบ้าน” จึงเป็นประโยคความซ้อน"},
+  {type:"complex", kind:"ประโยคความซ้อน (วิเศษณานุประโยค บอกจุดประสงค์)", seg:[["เขาอ่านหนังสืออย่างหนัก","a"],["เพื่อ","j"],["ให้ตนเองสอบผ่าน","s"]],
+   why:"“เพื่อให้ตนเองสอบผ่าน” เป็นวิเศษณานุประโยคบอกจุดประสงค์ ขยายกริยา “อ่าน” ในประโยคหลัก “เขาอ่านหนังสืออย่างหนัก” ซึ่งมีประธานและกริยาของตนเอง จึงเป็นประโยคความซ้อน"}
+];
+
+const TYPES = {
+  single:{name:"ประโยคความเดียว",short:"ความเดียว",cls:"t-single",legend:{a:"ภาคประธาน",b:"ภาคแสดง"}},
+  compound:{name:"ประโยคความรวม",short:"ความรวม",cls:"t-compound",legend:{a:"ประโยคที่ ๑",b:"ประโยคที่ ๒",j:"สันธาน"}},
+  complex:{name:"ประโยคความซ้อน",short:"ความซ้อน",cls:"t-complex",legend:{a:"ประโยคหลัก",s:"อนุประโยค",j:"ตัวเชื่อมอนุประโยค"}}
+};
+const MAX = SENTENCES.length;
+const $ = id => document.getElementById(id);
+const shuffle = a => { a = a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+
+let want = 10, deck = [], idx = 0, revealed = false, picked = null, correct = 0, guessed = 0;
+
+/* ---------- เสียง/เอฟเฟกต์ ---------- */
+const cv = $('fx'), cx = cv.getContext('2d'); let parts = [], raf = null;
+function fit(){ cv.width = innerWidth*devicePixelRatio; cv.height = innerHeight*devicePixelRatio; }
+addEventListener('resize', fit); fit();
+function confetti(x, y, n=70){
+  const cols = ['#6366f1','#ec4899','#f59e0b','#10b981','#06b6d4','#a855f7'];
+  const d = devicePixelRatio;
+  for(let i=0;i<n;i++){
+    const a = Math.random()*Math.PI*2, v = (4+Math.random()*9)*d;
+    parts.push({x:x*d,y:y*d,vx:Math.cos(a)*v,vy:Math.sin(a)*v-6*d,r:(4+Math.random()*5)*d,c:cols[i%cols.length],rot:Math.random()*6,vr:(Math.random()-.5)*.4,life:1});
+  }
+  if(!raf) raf = requestAnimationFrame(tick);
+}
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.35*devicePixelRatio;p.vx*=.99;p.rot+=p.vr;p.life-=.012;
+    cx.save();cx.globalAlpha=Math.max(p.life,0);cx.translate(p.x,p.y);cx.rotate(p.rot);cx.fillStyle=p.c;cx.fillRect(-p.r,-p.r/2,p.r*2,p.r);cx.restore();});
+  parts = parts.filter(p=>p.life>0);
+  raf = parts.length ? requestAnimationFrame(tick) : null;
+  if(!raf) cx.clearRect(0,0,cv.width,cv.height);
+}
+function ripple(e){
+  const b = e.currentTarget, r = b.getBoundingClientRect(), s = document.createElement('span'), d = Math.max(r.width,r.height);
+  s.style.cssText = `position:absolute;border-radius:50%;background:rgba(255,255,255,.55);pointer-events:none;width:${d}px;height:${d}px;left:${e.clientX-r.left-d/2}px;top:${e.clientY-r.top-d/2}px;transform:scale(0);opacity:1;transition:transform .55s,opacity .55s`;
+  b.style.position = b.style.position || 'relative'; b.appendChild(s);
+  requestAnimationFrame(()=>{s.style.transform='scale(2.4)';s.style.opacity='0';}); setTimeout(()=>s.remove(),600);
+}
+document.addEventListener('pointerdown', e => { const b = e.target.closest('.btn'); if(b) ripple({currentTarget:b,clientX:e.clientX,clientY:e.clientY}); });
+
+/* ---------- หน้าตั้งค่า ---------- */
+function setCount(n){
+  want = Math.max(1, Math.min(MAX, n)); $('count').textContent = want;
+  document.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', +c.dataset.n === want));
+}
+[5,10,15,20].forEach(n => { const b = document.createElement('button'); b.className='chip'; b.dataset.n=n; b.textContent = n===MAX ? `ทั้งหมด ${n} ข้อ` : `${n} ข้อ`; b.onclick=()=>setCount(n); $('chips').appendChild(b); });
+$('minus').onclick = () => setCount(want-1);
+$('plus').onclick = () => setCount(want+1);
+setCount(10);
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  $(id).classList.add('active'); $('homeBtn').style.display = id==='s-setup' ? 'none' : '';
+  scrollTo({top:0,behavior:'smooth'});
+}
+
+/* สุ่มให้กระจายเท่า ๆ กัน: วนหยิบทีละชนิดแล้วสลับลำดับ */
+function buildDeck(n){
+  const g = {single:[],compound:[],complex:[]};
+  shuffle(SENTENCES).forEach(s => g[s.type].push(s));
+  const order = shuffle(['single','compound','complex']), out = [];
+  while(out.length < n){
+    let took = false;
+    for(const t of order){ if(out.length<n && g[t].length){ out.push(g[t].pop()); took = true; } }
+    if(!took) break;
+  }
+  return shuffle(out);
+}
+
+/* ---------- แบบฝึก ---------- */
+function start(){
+  deck = buildDeck(want); idx = 0; correct = 0; guessed = 0; show('s-quiz'); load();
+}
+function load(){
+  const q = deck[idx]; revealed = false; picked = null;
+  $('qno').textContent = `ข้อ ${idx+1}/${deck.length}`;
+  $('barfill').style.width = (idx/deck.length*100) + '%';
+  $('scoreTxt').textContent = '⭐ ' + correct;
+  const se = $('sentence'); se.classList.remove('show','enter'); void se.offsetWidth;
+  se.innerHTML = q.seg.map(([t,k]) => `<span class="seg ${k}">${t}</span>`).join('');
+  se.classList.add('enter');
+  document.querySelectorAll('.choice').forEach(c => c.className = 'choice ' + TYPES[c.dataset.t].cls);
+  $('answer').className = 'answer'; $('answer').innerHTML = '';
+  $('revealBtn').style.display = ''; $('nextBtn').style.display = 'none';
+  $('nextBtn').textContent = idx === deck.length-1 ? '🏁 ดูผลสรุป' : 'ข้อต่อไป →';
+}
+function reveal(){
+  if(revealed) return; revealed = true;
+  const q = deck[idx], T = TYPES[q.type];
+  const used = [...new Set(q.seg.map(s => s[1]))];
+  let verdict = '';
+  if(picked){
+    guessed++;
+    if(picked === q.type){ correct++; verdict = `<div class="verdict ok">🎉 ถูกต้อง!</div>`; }
+    else verdict = `<div class="verdict no">ยังไม่ถูก ลองดูเหตุผลนี้นะ</div>`;
+  }
+  $('answer').className = 'answer open ' + T.cls;
+  $('answer').innerHTML = `${verdict}
+    <span class="atype ${T.cls}">${T.name}</span>
+    <div class="akind">${q.kind}</div>
+    <div class="why">💡 ${q.why}</div>
+    <div class="legend">${used.map(k => `<span class="lg ${k}">${T.legend[k]}</span>`).join('')}</div>`;
+  $('sentence').classList.add('show');
+  document.querySelectorAll('.choice').forEach(c => {
+    c.classList.add('disabled');
+    if(c.dataset.t === q.type) c.classList.add('right');
+    else if(c.dataset.t === picked) c.classList.add('wrong');
+  });
+  if(picked === q.type){ const r = $('sentence').getBoundingClientRect(); confetti(r.left+r.width/2, r.top+r.height/2); }
+  $('scoreTxt').textContent = '⭐ ' + correct;
+  $('revealBtn').style.display = 'none'; $('nextBtn').style.display = '';
+  setTimeout(() => $('answer').scrollIntoView({behavior:'smooth',block:'nearest'}), 150);
+}
+document.querySelectorAll('.choice').forEach(c => c.onclick = () => {
+  if(revealed) return; picked = c.dataset.t;
+  document.querySelectorAll('.choice').forEach(x => x.classList.remove('mine')); c.classList.add('mine');
+  reveal();
+});
+$('revealBtn').onclick = reveal;
+$('nextBtn').onclick = () => { idx++; idx < deck.length ? load() : finish(); };
+
+function finish(){
+  $('barfill').style.width = '100%';
+  const pct = guessed ? Math.round(correct/guessed*100) : null;
+  let icon='🏆', title='เก่งมาก!';
+  if(pct===null){ icon='📘'; title='ทบทวนครบแล้ว'; }
+  else if(pct<50){ icon='💪'; title='สู้ ๆ ทบทวนอีกครั้งนะ'; }
+  else if(pct<80){ icon='👍'; title='ดีมาก เกือบเต็มแล้ว'; }
+  $('trophy').textContent = icon; $('rTitle').textContent = title;
+  $('rScore').textContent = guessed ? `${correct}/${guessed}` : `${deck.length} ข้อ`;
+  $('rSub').textContent = guessed ? `ทายถูก ${correct} จาก ${guessed} ข้อที่ทาย (ทบทวนทั้งหมด ${deck.length} ข้อ)` : 'คุณดูเฉลยครบทุกข้อแล้ว ลองเล่นอีกรอบโดยกดทายก่อนเปิดเฉลยดูนะ';
+  show('s-result');
+  if(pct===null || pct>=50){ setTimeout(()=>{ confetti(innerWidth*.3,innerHeight*.35,90); confetti(innerWidth*.7,innerHeight*.35,90); },300); }
+}
+$('startBtn').onclick = start;
+$('againBtn').onclick = start;
+$('backBtn').onclick = () => show('s-setup');
+$('homeBtn').onclick = () => show('s-setup');
+addEventListener('keydown', e => {
+  if(!$('s-quiz').classList.contains('active')) return;
+  if(e.key==='Enter' || e.key===' '){ e.preventDefault(); revealed ? $('nextBtn').click() : reveal(); }
+});
+</script>
+</body>
+</html>
