@@ -119,6 +119,97 @@ button{font-family:inherit;font-size:inherit;cursor:pointer;border:0;color:inher
 .lg{font-size:16px;font-weight:700;padding:2px 14px;border-radius:999px}
 .lg.a{background:#dbeafe;color:#1d4ed8}.lg.b{background:#ffedd5;color:#c2410c}.lg.s{background:#fce7f3;color:#be185d}.lg.j{background:#fef9c3;color:#a16207}
 
+/* ===== สไลด์เนื้อหา ===== */
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn.learn{background:linear-gradient(135deg,#0d9488,#06b6d4);box-shadow:0 10px 24px rgba(13,148,136,.35)}
+#lesson{position:fixed;inset:0;z-index:40;display:none;flex-direction:column;background:linear-gradient(135deg,#eef2ff,#fdf2f8 55%,#ecfeff);padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+#lesson.open{display:flex;animation:fadein .35s both}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.ls-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 22px 6px}
+.ls-top b{font-size:20px}
+.ls-stage{flex:1;position:relative;overflow:hidden;touch-action:pan-y}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;padding:4px 26px 24px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.slide::before,.slide::after{content:"";flex:1 0 0}
+.slide.on{display:flex;animation:sIn .5s cubic-bezier(.2,.8,.2,1) both}
+.slide.on.back{animation-name:sInB}
+@keyframes sIn{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:none}}
+@keyframes sInB{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:none}}
+.slide>*{max-width:960px;width:100%}
+.slide h2{margin:6px 0 4px;text-align:center;font-size:clamp(28px,4.4vw,44px);line-height:1.3}
+.slide .sub{text-align:center;color:var(--muted);margin:0 0 12px;font-size:clamp(17px,2.2vw,22px)}
+.tag{display:inline-block;padding:0 18px;border-radius:999px;font-weight:800;margin-right:6px}
+.an{opacity:0}
+.slide.on .an{animation:var(--a,pop) .7s cubic-bezier(.2,.9,.3,1.2) var(--d,0s) both}
+@keyframes pop{0%{opacity:0;transform:scale(.3)}70%{transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
+@keyframes fromL{from{opacity:0;transform:translateX(-140px)}to{opacity:1;transform:none}}
+@keyframes fromR{from{opacity:0;transform:translateX(140px)}to{opacity:1;transform:none}}
+@keyframes drop{from{opacity:0;transform:translateY(-70px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:none}}
+@keyframes fadeA{from{opacity:0}to{opacity:1}}
+.row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px}
+.col{display:flex;flex-direction:column;align-items:center;gap:6px}
+.bk{display:inline-block;padding:6px 18px;border-radius:16px;font-weight:700;font-size:clamp(22px,3.3vw,34px);line-height:1.5}
+.bk.a{background:#dbeafe;box-shadow:inset 0 -5px 0 #3b82f6}
+.bk.b{background:#ffedd5;box-shadow:inset 0 -5px 0 #f97316}
+.bk.s{background:#fce7f3;box-shadow:inset 0 -5px 0 #ec4899}
+.bk.j{background:#fef9c3;box-shadow:inset 0 -5px 0 #eab308}
+.bk.x{background:#f1f5f9;box-shadow:inset 0 -5px 0 #94a3b8;font-weight:600}
+.lab{font-size:15px;font-weight:800;border-radius:999px;padding:0 12px;display:inline-block}
+.lab.a{background:#dbeafe;color:#1d4ed8}.lab.b{background:#ffedd5;color:#c2410c}
+.cap{font-size:clamp(15px,1.9vw,19px);font-weight:700;color:var(--muted);text-align:center}
+.eq{font-size:44px;font-weight:800;color:#6366f1}
+.bubble{background:#fff;border-radius:22px;padding:14px 22px;box-shadow:0 8px 22px rgba(79,70,229,.15);font-weight:700;font-size:clamp(19px,2.6vw,26px);text-align:center}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.tc{border-radius:22px;padding:16px 12px;text-align:center;font-weight:700;display:flex;flex-direction:column;gap:6px;align-items:center;font-size:clamp(17px,2.2vw,22px)}
+.tc i{font-style:normal;font-size:30px;animation:bob 1.6s ease-in-out infinite}
+.tc em{font-style:normal;font-size:clamp(20px,2.8vw,28px);font-weight:800}
+.ring{position:relative;display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:32px 22px 18px;border:4px dashed #0d9488;border-radius:30px;background:rgba(204,251,241,.45)}
+.ringlbl{position:absolute;top:-16px;left:22px;background:#0d9488;color:#fff;font-weight:800;font-size:16px;border-radius:999px;padding:0 14px}
+.rock{display:inline-block;animation:rock 1.6s ease-in-out infinite}
+@keyframes rock{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
+.cj{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+.cjc{background:#fff;border-radius:18px;padding:12px 16px;border-left:8px solid #f97316;box-shadow:0 4px 14px rgba(30,27,75,.08);display:flex;flex-direction:column;font-size:clamp(16px,2vw,20px)}
+.cjc b{color:#9a3412;font-size:clamp(18px,2.4vw,24px)}
+.nest{position:relative;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:36px 22px 20px;border:4px solid #3b82f6;border-radius:30px;background:rgba(219,234,254,.5)}
+.inner{position:relative;display:flex;gap:8px;flex-wrap:wrap;padding:28px 14px 12px;border:3px dashed #ec4899;border-radius:24px;background:rgba(252,231,243,.75)}
+.nlbl{position:absolute;top:-15px;left:20px;background:#3b82f6;color:#fff;font-weight:800;font-size:16px;border-radius:999px;padding:0 14px}
+.nlbl.s{background:#ec4899;top:-13px}
+.pts{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.pts li{background:#fff;border-radius:16px;padding:12px 18px;box-shadow:0 4px 14px rgba(30,27,75,.08);font-size:clamp(17px,2.2vw,22px)}
+.types3{display:grid;gap:14px;margin-top:6px}
+.tp{background:#fff;border:4px solid;border-radius:24px;padding:14px 18px;box-shadow:0 8px 22px rgba(30,27,75,.1)}
+.tph{display:flex;flex-direction:column;margin-bottom:8px}
+.tph b{font-size:clamp(20px,2.8vw,28px)}
+.tph span{color:var(--muted);font-size:clamp(16px,2vw,20px)}
+.tp small{display:block;margin-top:8px;color:var(--muted);font-weight:700;font-size:clamp(15px,1.9vw,18px)}
+.cutbox{background:#fff;border-radius:26px;padding:18px 18px 16px;margin-top:16px;box-shadow:0 10px 26px rgba(30,27,75,.1);position:relative}
+.cuttag{position:absolute;top:-14px;left:20px;font-weight:800;border-radius:999px;padding:0 16px;background:#fff7ed;color:#9a3412;border:2px solid #fdba74}
+.cuttag.s{background:#fdf4ff;color:#86198f;border-color:#f0abfc}
+.cutrow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;padding-top:50px}
+.gap{position:relative;display:inline-block;width:0;height:1.2em}
+.slide.on .gap{animation:gapo .6s 1.4s both}
+.slide.on .gap.g0{animation:none}
+@keyframes gapo{to{width:46px}}
+.scis{position:absolute;left:50%;top:50%;font-style:normal;font-size:34px;transform:translate(-50%,-50%);opacity:0;z-index:2}
+.slide.on .scis{animation:snip 1.4s .8s both}
+@keyframes snip{0%{opacity:0;transform:translate(-50%,-160%) scale(.3)}30%{opacity:1;transform:translate(-50%,-50%) scale(1.2) rotate(-18deg)}50%{opacity:1;transform:translate(-50%,-50%) rotate(18deg)}70%{opacity:1;transform:translate(-50%,-50%) rotate(-18deg)}100%{opacity:1;transform:translate(-50%,-50%) rotate(0)}}
+.slide.on .conj{overflow:hidden;white-space:nowrap;animation:vanish .5s 1.4s both}
+@keyframes vanish{from{max-width:140px;opacity:1}to{max-width:0;opacity:0;padding-left:0;padding-right:0}}
+.slide.on .lift{animation:lift 1s 1.4s both}
+@keyframes lift{to{transform:translateY(-46px) rotate(-3deg)}}
+.verd{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.ok,.no{padding:4px 16px;border-radius:999px;font-weight:800;font-size:clamp(16px,2vw,20px)}
+.ok{background:#dcfce7;color:#15803d}.no{background:#fee2e2;color:#b91c1c}
+.traps{display:grid;gap:12px;margin-top:8px}
+.trap{background:#fff;border-radius:20px;padding:14px 18px;box-shadow:0 6px 18px rgba(30,27,75,.1);border-left:8px solid #f59e0b;font-size:clamp(17px,2.2vw,21px)}
+.trap b{display:block;font-size:clamp(19px,2.5vw,25px)}
+.trap em{font-style:normal;font-weight:800;color:#4f46e5}
+.ls-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 22px 18px}
+.dots{display:flex;gap:8px;align-items:center}
+.dot{width:12px;height:12px;border-radius:999px;background:#c7d2fe;transition:all .3s;cursor:pointer}
+.dot.on{width:34px;background:linear-gradient(90deg,#6366f1,#ec4899)}
+@media (max-width:640px){.tri,.cj{grid-template-columns:1fr}.dots{display:none}.slide{padding:4px 14px 20px}}
+
 /* result */
 .result{text-align:center}
 .trophy{font-size:92px;animation:bob 2.2s ease-in-out infinite;display:block}
@@ -128,7 +219,7 @@ canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-in
 @media (max-width:640px){
   body{font-size:18px}.types,.choices{grid-template-columns:1fr}.card{padding:20px}
 }
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.an{opacity:1!important}}
 </style>
 </head>
 <body>
@@ -161,7 +252,10 @@ canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-in
           <button id="plus" aria-label="เพิ่ม">+</button>
         </div>
         <div class="chips" id="chips"></div>
-        <button class="btn" id="startBtn" style="font-size:24px;min-height:66px;padding:14px 48px">เริ่มทบทวน ▶</button>
+        <div class="cta-row">
+          <button class="btn" id="startBtn" style="font-size:24px;min-height:66px;padding:14px 44px">เริ่มทบทวน ▶</button>
+          <button class="btn learn" id="lessonBtn" style="font-size:24px;min-height:66px;padding:14px 36px">📖 ดูเนื้อหา</button>
+        </div>
         <p class="hint">ระบบสุ่มประโยคให้ครบทั้ง 3 ชนิดในสัดส่วนใกล้เคียงกัน • ทายก่อนแล้วกดเฉลยได้</p>
       </div>
     </div>
@@ -203,6 +297,166 @@ canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-in
       </div>
     </div>
   </section>
+</div>
+
+<!-- ===== สไลด์เนื้อหา ===== -->
+<div id="lesson" role="dialog" aria-label="เนื้อหาเรื่องประโยค">
+  <div class="ls-top"><b>📖 เนื้อหา: ประโยคในภาษาไทย</b><span class="pill" id="lsCount">1/8</span><button class="btn ghost small" id="lsClose">✕ ปิด</button></div>
+  <div class="ls-stage" id="lsStage">
+
+    <!-- 1 ประโยคคืออะไร -->
+    <section class="slide">
+      <h2 class="an" style="--a:drop">📚 ประโยคคืออะไร</h2>
+      <p class="sub an" style="--d:.2s;--a:fadeA">กลุ่มคำที่เรียงกันแล้วได้ใจความสมบูรณ์ ประกอบด้วย 2 ภาค</p>
+      <div class="row" style="margin-top:22px;align-items:flex-start">
+        <div class="col an" style="--a:fromL;--d:.5s"><span class="bk a">เด็ก</span><span class="lab a">ภาคประธาน</span><span class="cap">ใคร / อะไร</span></div>
+        <span class="eq an" style="--d:1.3s">+</span>
+        <div class="col an" style="--a:fromR;--d:.9s"><span class="bk b">อ่านหนังสือ</span><span class="lab b">ภาคแสดง</span><span class="cap">ทำอะไร / เป็นอย่างไร</span></div>
+      </div>
+      <div class="row" style="margin-top:24px"><div class="bubble an" style="--d:1.8s">✅ <span class="bk a">เด็ก</span> <span class="bk b">อ่านหนังสือ</span> = ประโยค</div></div>
+      <p class="sub an" style="--d:2.4s;--a:rise;margin-top:20px">ภาคแสดงมี <b>กริยา</b> เป็นแกนหลักเสมอ — เราจะใช้ “กริยา” เป็นตัวนับใจความ</p>
+    </section>
+
+    <!-- 2 หลักจำแนก -->
+    <section class="slide">
+      <h2 class="an" style="--a:drop">🔍 หลักจำแนกประโยค 3 ชนิด</h2>
+      <p class="sub an" style="--d:.2s;--a:fadeA">ใช้คำถามเดียว: ประโยคนี้มีกี่ “ใจความ”</p>
+      <div class="row"><div class="bubble an" style="--d:.5s">❓ นับ <b>กริยาหลัก</b> แล้วดูว่าใจความมีน้ำหนักเท่ากันหรือไม่</div></div>
+      <div class="tri">
+        <div class="tc t-single an" style="--a:rise;--d:1.1s"><i>↓</i><span>มี <b>1</b> ใจความ</span><em>ความเดียว</em></div>
+        <div class="tc t-compound an" style="--a:rise;--d:1.5s"><i>↓</i><span><b>หลายใจความ</b> น้ำหนักเท่ากัน เชื่อมด้วยสันธาน</span><em>ความรวม</em></div>
+        <div class="tc t-complex an" style="--a:rise;--d:1.9s"><i>↓</i><span><b>ใจความหลัก</b> + อนุประโยคซ้อนอยู่ข้างใน</span><em>ความซ้อน</em></div>
+      </div>
+    </section>
+
+    <!-- 3 ความเดียว -->
+    <section class="slide">
+      <h2 class="an" style="--a:drop"><span class="tag t-single">①</span>ประโยคความเดียว</h2>
+      <p class="sub an" style="--d:.2s;--a:fadeA">ใจความเดียว • ประธาน 1 ชุด + กริยาหลัก 1 ชุด</p>
+      <div class="row" style="margin-top:22px">
+        <div class="ring an" style="--d:.3s">
+          <span class="ringlbl">ใจความ ①</span>
+          <span class="bk a an" style="--a:fromL;--d:.8s">ชาวนา</span>
+          <span class="bk b an" style="--a:fromR;--d:1.2s">เกี่ยวข้าวด้วยเคียว</span>
+        </div>
+      </div>
+      <p class="sub an" style="--d:1.9s;--a:fadeA;margin-top:24px">ส่วนขยายต่อยาวแค่ไหน ใจความก็ยังมีเดียว 👇</p>
+      <div class="row">
+        <span class="bk a an" style="--d:2.2s">ครู</span>
+        <span class="bk x an" style="--d:2.6s">ใจดีของเรา</span>
+        <span class="bk b an" style="--d:2.2s">สอน</span>
+        <span class="bk x an" style="--d:3s">ภาษาไทย</span>
+        <span class="bk x an" style="--d:3.4s">ทุกวัน</span>
+      </div>
+      <p class="cap an" style="--d:3.8s;--a:fadeA;margin-top:12px">⬜ สีเทา = ส่วนขยาย (ไม่มีกริยาของตัวเอง จึงไม่เพิ่มใจความ)</p>
+    </section>
+
+    <!-- 4 ความรวม -->
+    <section class="slide">
+      <h2 class="an" style="--a:drop"><span class="tag t-compound">⛓</span>ประโยคความรวม</h2>
+      <p class="sub an" style="--d:.2s;--a:fadeA">หลายใจความ น้ำหนักเท่ากัน เชื่อมด้วย “สันธาน”</p>
+      <div class="row" style="margin-top:16px">
+        <span class="bk a an" style="--a:fromL;--d:.4s">ฉันชอบอ่านหนังสือ</span>
+        <span class="bk j an" style="--d:1.1s">และ</span>
+        <span class="bk b an" style="--a:fromR;--d:.6s">น้องชอบฟังเพลง</span>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <span class="an" style="--d:1.5s;font-size:46px"><span class="rock">⚖️</span></span>
+        <span class="cap an" style="--d:1.6s;--a:fadeA">น้ำหนักเท่ากัน — ต่างเป็นประโยคอิสระ มีประธานและกริยาของตัวเอง</span>
+      </div>
+      <div class="cj">
+        <div class="cjc an" style="--a:rise;--d:2s"><b>คล้อยตามกัน</b><span>และ • แล้ว • ไม่เพียง…แต่…ด้วย</span></div>
+        <div class="cjc an" style="--a:rise;--d:2.3s"><b>ขัดแย้งกัน</b><span>แต่ • แต่ทว่า • ทว่า</span></div>
+        <div class="cjc an" style="--a:rise;--d:2.6s"><b>เป็นทางเลือก</b><span>หรือ • มิฉะนั้น • ไม่เช่นนั้น</span></div>
+        <div class="cjc an" style="--a:rise;--d:2.9s"><b>เป็นเหตุเป็นผลกัน</b><span>ดังนั้น • เพราะฉะนั้น • จึง</span></div>
+      </div>
+    </section>
+
+    <!-- 5 ความซ้อน -->
+    <section class="slide">
+      <h2 class="an" style="--a:drop"><span class="tag t-complex">🧩</span>ประโยคความซ้อน</h2>
+      <p class="sub an" style="--d:.2s;--a:fadeA">ประโยคหลัก 1 ประโยค ที่มี “อนุประโยค” ซ้อนอยู่ข้างใน</p>
+      <div class="row" style="margin-top:18px">
+        <div class="nest an" style="--d:.3s">
+          <span class="nlbl">ประโยคหลัก</span>
+          <span class="bk a an" style="--a:fromL;--d:.9s">หนังสือ</span>
+          <div class="inner an" style="--d:1.6s">
+            <span class="nlbl s">อนุประโยค</span>
+            <span class="bk j">ที่</span><span class="bk s">ฉันซื้อเมื่อวาน</span>
+          </div>
+          <span class="bk a an" style="--a:fromR;--d:1.2s">เป็นนิยายสนุก</span>
+        </div>
+      </div>
+      <ul class="pts">
+        <li class="an" style="--d:2.3s;--a:rise">อนุประโยคมี <b>ประธาน + กริยา</b> ของตัวเอง</li>
+        <li class="an" style="--d:2.7s;--a:rise">แต่ทำหน้าที่เป็น “ส่วนหนึ่ง” ของประโยคหลัก — ยืนเดี่ยว ๆ ไม่ได้</li>
+        <li class="an" style="--d:3.1s;--a:rise">มักมีตัวเชื่อม เช่น <b>ที่ ซึ่ง อัน ว่า เมื่อ ถ้า เพราะ เพื่อ</b></li>
+      </ul>
+    </section>
+
+    <!-- 6 อนุประโยค 3 แบบ -->
+    <section class="slide">
+      <h2 class="an" style="--a:drop">อนุประโยค 3 แบบ</h2>
+      <p class="sub an" style="--d:.2s;--a:fadeA">ดูว่าอนุประโยค “ทำหน้าที่อะไร” ในประโยคหลัก</p>
+      <div class="types3">
+        <div class="tp an" style="--a:fromL;--d:.5s;border-color:#3b82f6">
+          <div class="tph"><b>นามานุประโยค</b><span>ทำหน้าที่เป็น <u>นาม</u> (ประธาน / กรรม)</span></div>
+          <div class="row"><span class="bk a">ฉันทราบ</span><span class="bk j">ว่า</span><span class="bk s">เขาจะมาพรุ่งนี้</span></div>
+          <small>ตัวเชื่อม: ที่ • ว่า • การที่</small>
+        </div>
+        <div class="tp an" style="--a:fromR;--d:1.2s;border-color:#ec4899">
+          <div class="tph"><b>คุณานุประโยค</b><span>ทำหน้าที่ขยาย <u>นาม</u></span></div>
+          <div class="row"><span class="bk a">นักเรียน</span><span class="bk j">ที่</span><span class="bk s">ขยันเรียน</span><span class="bk a">สอบได้ที่หนึ่ง</span></div>
+          <small>ตัวเชื่อม: ที่ • ซึ่ง • อัน</small>
+        </div>
+        <div class="tp an" style="--a:fromL;--d:1.9s;border-color:#eab308">
+          <div class="tph"><b>วิเศษณานุประโยค</b><span>ทำหน้าที่ขยาย <u>กริยา</u> (บอกเวลา เหตุผล เงื่อนไข จุดประสงค์)</span></div>
+          <div class="row"><span class="bk j">เมื่อ</span><span class="bk s">ฝนหยุดตก</span><span class="bk a">เด็ก ๆ ก็ออกไปเล่น</span></div>
+          <small>ตัวเชื่อม: เมื่อ • ถ้า • เพราะ • เพื่อ</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 ตัดครึ่ง -->
+    <section class="slide">
+      <h2 class="an" style="--a:drop">✂️ เทคนิค “ลองตัดครึ่ง”</h2>
+      <p class="sub an" style="--d:.2s;--a:fadeA">ตัดตรงรอยต่อ แล้วดูว่าท่อนไหน “ยืนเดี่ยว ๆ ได้”</p>
+      <div class="cutbox an" style="--a:rise;--d:.3s">
+        <div class="cuttag">ความรวม</div>
+        <div class="cutrow">
+          <span class="bk a">ฉันชอบอ่านหนังสือ</span>
+          <span class="bk j conj">และ</span>
+          <span class="gap"><i class="scis">✂️</i></span>
+          <span class="bk b">น้องชอบฟังเพลง</span>
+        </div>
+        <div class="verd"><span class="ok an" style="--d:2.4s">✅ ท่อนแรก: ประโยคสมบูรณ์</span><span class="ok an" style="--d:2.8s">✅ ท่อนหลัง: ประโยคสมบูรณ์</span></div>
+      </div>
+      <div class="cutbox an" style="--a:rise;--d:.7s">
+        <div class="cuttag s">ความซ้อน</div>
+        <div class="cutrow">
+          <span class="bk a">หนังสือ</span>
+          <span class="gap g0"><i class="scis">✂️</i></span>
+          <span class="bk s lift">ที่ฉันซื้อเมื่อวาน</span>
+          <span class="bk a">เป็นนิยายสนุก</span>
+        </div>
+        <div class="verd"><span class="ok an" style="--d:2.6s">✅ ที่เหลือ “หนังสือเป็นนิยายสนุก” ยังสมบูรณ์</span><span class="no an" style="--d:3s">❌ “ที่ฉันซื้อเมื่อวาน” ยืนเดี่ยว ๆ ไม่ได้</span></div>
+      </div>
+      <p class="sub an" style="--d:3.4s;--a:rise;margin-top:16px">ตัดแล้วสมบูรณ์ทั้งคู่ = <b>ความรวม</b> • มีท่อนที่ยืนเดี่ยว ๆ ไม่ได้ = <b>ความซ้อน</b></p>
+    </section>
+
+    <!-- 8 กับดัก -->
+    <section class="slide">
+      <h2 class="an" style="--a:drop">⚠️ กับดักที่ต้องระวัง</h2>
+      <div class="traps">
+        <div class="trap an" style="--a:fromL;--d:.4s"><b>1) “ที่” ไม่ได้เป็นตัวเชื่อมเสมอไป</b>แม่ซื้อผลไม้<u>ที่</u>ตลาด → “ที่” เป็นบุพบทบอกสถานที่ ยังเป็น <em>ความเดียว</em></div>
+        <div class="trap an" style="--a:fromR;--d:1s"><b>2) “แต่” ไม่ได้ขัดแย้งเสมอไป</b>เขาไม่เพียงเรียนเก่ง<u>แต่</u>ยังเล่นกีฬาเก่ง → “ไม่เพียง…แต่…” คือคล้อยตามกัน ยังเป็น <em>ความรวม</em></div>
+        <div class="trap an" style="--a:fromL;--d:1.6s"><b>3) ส่วนขยายยาว ≠ ความซ้อน</b>คุณครูใจดีของเราสอนทุกวัน → ส่วนที่ยาวไม่มี “กริยาของตัวเอง” จึงเป็นแค่ส่วนขยาย ยังเป็น <em>ความเดียว</em></div>
+      </div>
+      <div class="row" style="margin-top:22px"><button class="btn an" id="lsGo" style="--d:2.3s;font-size:24px;min-height:66px;padding:14px 44px">เริ่มทบทวนเลย ▶</button></div>
+    </section>
+
+  </div>
+  <div class="ls-nav"><button class="btn ghost" id="lsPrev">← ก่อนหน้า</button><div class="dots" id="lsDots"></div><button class="btn" id="lsNext">ต่อไป →</button></div>
 </div>
 
 <script>
@@ -394,6 +648,39 @@ $('startBtn').onclick = start;
 $('againBtn').onclick = start;
 $('backBtn').onclick = () => show('s-setup');
 $('homeBtn').onclick = () => show('s-setup');
+/* ---------- สไลด์เนื้อหา ---------- */
+const lesson = $('lesson'), slides = [...lesson.querySelectorAll('.slide')], dotsBox = $('lsDots');
+let cur = 0;
+slides.forEach((_, i) => { const d = document.createElement('span'); d.className = 'dot'; d.onclick = () => go(i); dotsBox.appendChild(d); });
+function go(n){
+  const back = n < cur; cur = Math.max(0, Math.min(slides.length-1, n));
+  slides.forEach(s => s.classList.remove('on')); void lesson.offsetWidth;   /* รีเซ็ตเพื่อให้แอนิเมชันเล่นใหม่ */
+  slides.forEach((s, i) => { s.classList.toggle('back', back); s.classList.toggle('on', i === cur); });
+  [...dotsBox.children].forEach((d, i) => d.classList.toggle('on', i === cur));
+  $('lsPrev').style.visibility = cur === 0 ? 'hidden' : '';
+  $('lsNext').textContent = cur === slides.length-1 ? 'เริ่มทบทวน ▶' : 'ต่อไป →';
+  $('lsCount').textContent = `${cur+1}/${slides.length}`;
+  slides[cur].scrollTop = 0;
+}
+function openLesson(){ lesson.classList.add('open'); document.body.style.overflow = 'hidden'; cur = 0; go(0); }
+function closeLesson(){ lesson.classList.remove('open'); document.body.style.overflow = ''; }
+$('lessonBtn').onclick = openLesson;
+$('lsClose').onclick = closeLesson;
+$('lsPrev').onclick = () => go(cur-1);
+$('lsNext').onclick = () => { if(cur === slides.length-1){ closeLesson(); start(); } else go(cur+1); };
+$('lsGo').onclick = () => { closeLesson(); start(); };
+let tx = 0, ty = 0;
+$('lsStage').addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, {passive:true});
+$('lsStage').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+  if(Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy)*1.5){ dx < 0 ? $('lsNext').click() : go(cur-1); }
+}, {passive:true});
+addEventListener('keydown', e => {
+  if(!lesson.classList.contains('open')) return;
+  if(e.key === 'ArrowRight' || e.key === ' '){ e.preventDefault(); $('lsNext').click(); }
+  else if(e.key === 'ArrowLeft') go(cur-1);
+  else if(e.key === 'Escape') closeLesson();
+});
 addEventListener('keydown', e => {
   if(!$('s-quiz').classList.contains('active')) return;
   if(e.key==='Enter' || e.key===' '){ e.preventDefault(); revealed ? $('nextBtn').click() : reveal(); }
